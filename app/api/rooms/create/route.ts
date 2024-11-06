@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "@/utils/prismadb";
-import { pusherServer } from "@/utils/pusher";
 import { NextResponse } from "next/server";
 
 export const POST = async () => {

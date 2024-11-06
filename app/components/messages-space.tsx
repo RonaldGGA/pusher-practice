@@ -26,7 +26,7 @@ const MessagesSpace: React.FC<MessagesSpace> = ({ roomId, initialItems }) => {
       pusherClient.unsubscribe(roomId);
       pusherClient.unbind("new-message");
     };
-  }, []);
+  }, [roomId]);
 
   return (
     <div className="flex flex-col p-3 gap-2 border rounded text-sm text-gray-800 font-medium">
