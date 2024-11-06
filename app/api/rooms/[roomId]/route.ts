@@ -4,13 +4,14 @@ import prisma from "@/utils/prismadb";
 import { pusherServer } from "@/utils/pusher";
 import { NextResponse } from "next/server";
 
-interface Params {
-  params: {
-    roomId: string;
-  };
+interface IParams {
+  roomId: string;
 }
-
-export const GET = async ({ params }: Params) => {
+//Needed the request even if you are not using it
+export const GET = async (
+  request: Request,
+  { params }: { params: IParams }
+) => {
   const { roomId } = params;
 
   try {
@@ -26,7 +27,10 @@ export const GET = async ({ params }: Params) => {
   }
 };
 
-export const POST = async (request: Request, { params }: Params) => {
+export const POST = async (
+  request: Request,
+  { params }: { params: IParams }
+) => {
   const { roomId } = params;
 
   try {
